@@ -57,6 +57,16 @@ void delete_at_end(Node*(&head)){
     prev->next=temp->next; //Point second last node to next of last node
     delete temp; //Delete the last node
 }
+/*
+Deleting middle node
+Algorithm:
+->If index is out of bounds, exit the function
+->If index is 0, delete the first node using delete_at_start function
+->Otherwise, use two pointers: one pointing to the node to be deleted and one to the node before it
+->Traverse the list until the node to be deleted is reached
+->Set next of the previous node to next of the node to be deleted
+->Delete the node to be deleted
+*/
 void delete_at_middle(int index,Node*(&head)){
     if(index>=size(head)){ //Index is out of bounds
         return;
