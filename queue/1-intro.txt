@@ -1,0 +1,54 @@
+What is Stack?
+    ->Linear Data Structure
+    ->It follows LIFO principle(Last in First Out)
+    ->Only top element of stack can be accessed(Which is the last element added)
+
+What is LIFO principle?
+    ->Last in First Out
+    ->It states that the element inserted first will come out last
+    ->Real life example:
+        *)Imagine a pile of plates
+        *)The plate we last placed is in the top of the pile of plates
+        *)The first time someone picks from this plate will pick the top one(Hence LIFO)
+
+Types of Stack:
+    1)Fixed Size Stack
+        ->Implemented using arrays
+        ->Stack has a fixed size and cannot grow of shrink
+        ->If stack is full and an element is added, it causes overflow error
+        ->If stack is empty and we attempt to remove an element, it causes an underflow error
+    2)Dynamic Size Stack
+        ->Implemented using Linked List
+        ->Stack size is dynamic and can grow or shink as requirement
+        ->If stack is full and we add an element, the size of stack is increased
+        ->When an element is removed, the size of stack decreases
+
+Stack ADT Operations (All Operations take O(1) time complexity)
+    1)Push()
+        ->Inserts an element to stack
+    2)Pop()
+        ->Removes an element from stack
+    3)Top()(Also called peek)
+        ->Returns the top element from stack
+    4)is_empty()
+        ->Returns true if stack is empty
+    5)is_full()
+        ->Returns true if stack is full(Only used in array implementation)
+
+Advantages of Stack
+    ->Simple data structure making it easily applicable
+    ->Efficient as all operations take O(1) time complexity
+    ->Uses LIFO principle which is useful in many scenarios such as function call and expression evaluation
+
+Disadvantages of Stack
+    ->Elements in middle or below top of stack are not easy to modify hence limited access
+    ->Potential Overflow can cause loss of data
+    ->In applications where random access is needed, it is useless
+    ->Limited storage so not applicable in places where high storage is required(Array only)
+
+Applications of Stack
+    ->Infix to Postfix/Prefix Conversion
+    ->Redo-undo feature is implemented using stack
+    ->Forward and backward features in web browsers is implemented using stack
+    ->Every modern computer uses stack as a primary management for running purposes
+    ->Function calls is implemented using stack, Last called function call will always run first
