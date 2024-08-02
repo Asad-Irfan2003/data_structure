@@ -33,7 +33,7 @@ public:
     {
         if (is_empty() == true)
         {
-            throw "Stack Underflow";
+            throw runtime_error("stack Underflow");
         }
         SNode<T> *temp = top;
         top = top->next;
@@ -42,7 +42,7 @@ public:
     int peek()
     {
         if (is_empty() == true)
-            throw "Stack Underflow";
+            throw runtime_error("stack Underflow");
         return top->data;
     }
 };
