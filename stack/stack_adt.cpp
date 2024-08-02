@@ -1,17 +1,17 @@
 #include <iostream>
 using namespace std;
 template <typename T>
-struct Node
+struct SNode
 {
     T data;
-    Node<T> *next;
-    Node() : data(0), next(NULL) {}
-    Node(T data) : data(data), next(NULL) {}
+    SNode<T> *next;
+    SNode() : data(0), next(NULL) {}
+    SNode(T data) : data(data), next(NULL) {}
 };
 template <typename T>
 class stack
 {
-    Node<T> *top;
+    SNode<T> *top;
 
 public:
     stack() : top(NULL) {}
@@ -25,7 +25,7 @@ public:
 
        void push(T data)
     {
-        Node<T> *new_node = new Node<T>(data);
+        SNode<T> *new_node = new SNode<T>(data);
         new_node->next = top;
         top = new_node;
     }
@@ -35,7 +35,7 @@ public:
         {
             throw "Stack Underflow";
         }
-        Node<T> *temp = top;
+        SNode<T> *temp = top;
         top = top->next;
         delete temp;
     }
