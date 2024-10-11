@@ -1,0 +1,57 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+void merge(int *arr, int begin, int mid, int end)
+{
+    int subarr_1[mid - begin + 1] = {0};
+    int subarr_2[end - mid] = {0};
+    for (int i = 0; i < mid - begin + 1; i++)
+    {
+        subarr_1[i] = arr[begin + i];
+    }
+    for (int i = 0; i < end - mid; i++)
+    {
+        subarr_2[i] = arr[mid + i + 1];
+    }
+    int i = 0, j = 0, merged_i = begin;
+    while (i < mid - begin + 1 && j < end - mid)
+    {
+        if (subarr_1[i] < subarr_2[j])
+        {
+            arr[merged_i++] = subarr_1[i++];
+        }
+        else
+        {
+            arr[merged_i++] = subarr_2[j++];
+        }
+    }
+    while (i < mid - begin + 1)
+    {
+        arr[merged_i++] = subarr_1[i++];
+    }
+    while (j < end - mid)
+    {
+        arr[merged_i++] = subarr_2[j++];
+    }
+}
+void merge_sort(int *arr, int l, int r)
+{
+    if (l < r)
+    {
+        int m = l + (r - l) / 2;
+        merge_sort(arr, l, m);
+        merge_sort(arr, m + 1, r);
+        merge(arr, l, m, r);
+    }
+}
+
+int main()
+{
+    int arr[8] = {3, 1, 6, 8, 4, 5, 7, 2};
+    merge_sort(arr, 0, 5);
+    for (int i = 0; i < 6; i++)
+    {
+        cout << arr[i] << " ";
+    }
+}
