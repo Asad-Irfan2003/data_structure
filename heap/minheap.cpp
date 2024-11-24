@@ -1,6 +1,6 @@
 #include <iostream>
 #include <stdexcept>
-using namespace std;
+
 class MinHeap {
 private:
     int *heap;
@@ -9,7 +9,7 @@ private:
 
     void heapifyUp(int index) {
         while (index > 0 && heap[index] < heap[(index - 1) / 2]) {
-            swap(heap[index], heap[(index - 1) / 2]);
+            std::swap(heap[index], heap[(index - 1) / 2]);
             index = (index - 1) / 2;
         }
     }
@@ -44,10 +44,10 @@ private:
     }
 
 public:
-    MinHeap(int c = 10) {
-        capacity = c;
+    MinHeap(int initialCapacity = 10) {
+        capacity = initialCapacity;
         size = 0;
-        heap = new int[c];
+        heap = new int[capacity];
     }
 
     ~MinHeap() {
